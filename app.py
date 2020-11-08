@@ -119,4 +119,3 @@ def order_show():
     print(show)
     return render_template("orders.html",orders=show)
 
-app.run()
