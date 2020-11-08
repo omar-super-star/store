@@ -1,0 +1,142 @@
+<html>
+    <head>
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<title></title>
+<style>
+    body
+{
+	background:#00bcd4;
+}
+
+h1
+{
+	color:#fff;
+	margin:40px 0 60px 0;
+	font-weight:300;
+}
+
+.our-team-main
+{
+	width:100%;
+	height:auto;
+	border-bottom:5px #323233 solid;
+	background:#fff;
+	text-align:center;
+	border-radius:10px;
+	overflow:hidden;
+	position:relative;
+	transition:0.5s;
+	margin-bottom:28px;
+}
+
+
+.our-team-main img
+{
+	border-radius:50%;
+	margin-bottom:20px;
+	width: 90px;
+}
+
+.our-team-main h3
+{
+	font-size:20px;
+	font-weight:700;
+}
+
+.our-team-main p
+{
+	margin-bottom:0;
+}
+
+.team-back
+{
+	width:100%;
+	height:auto;
+	position:absolute;
+	top:0;
+	left:0;
+	padding:5px 15px 0 15px;
+	text-align:left;
+	background:#fff;
+	
+}
+
+.team-front
+{
+	width:100%;
+	height:auto;
+	position:relative;
+	z-index:10;
+	background:#fff;
+	padding:15px;
+	bottom:0px;
+	transition: all 0.5s ease;
+}
+
+.our-team-main:hover .team-front
+{
+	bottom:-200px;
+	transition: all 0.5s ease;
+}
+
+.our-team-main:hover
+{
+	border-color:#777;
+	transition:0.5s;
+}
+
+/*our-team-main*/
+
+
+</style>
+    </head>
+    <body>
+       
+        <!------ Include the above in your HEAD tag ---------->
+        
+        
+            <h1 class="text-center">show orders</h1>
+        
+            
+            <div class="container">
+            <div class="row">
+            
+            <!--team-1-->
+			{% for order in orders %}
+			
+            <div class="col-lg-4">
+            <div class="our-team-main">
+            
+            <div class="team-front">
+				
+            <img src="/static/image/{{order.url}}" class="img-fluid" />
+            
+            </div>
+            
+            <div class="team-back">
+            <span>
+                <p>الاسم:{{order.name}}</p>
+                <p>العنوان:{{order.address}}</p>
+				<p>الكمية:{{order.number}}</p>
+				{% if finish %}
+				{% else %}
+				<form action="/finish_order/{{order.id}}" method="POST">
+					<input type="submit" value="تم البيع "> 
+				</form>
+                {% endif %}
+            </span>
+            </div>
+            
+            </div>
+            </div>
+            {% endfor %}
+            <!--team-1-->
+            
+            <!--team-2-->
+           
+            </div>
+            </div>
+    </body>
+</html>

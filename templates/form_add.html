@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet" type="text/css" />
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<title>add_product</title>
+    </head>
+    <body>
+
+        <div class="page-container">
+           
+     <form action="/add_product" method="post" enctype="multipart/form-data">
+        <nav>
+            <a href="/user/show_order">طلبات الشراء</a>
+            <a href="/user/show_finish_order">عمليات الشراء المنتهية</a>
+        </nav>
+         <input type="text" name="name" require>
+         <input type="text" name=" description" require>
+         <input type="file" name="image" require>
+         <input type="submit">
+         <a href="{{ request.hostname }}{{ url }}">{{ request.hostname }}{{url}}</a>
+     </form>
+     
+      
+    </div>
+    
+    </body>
+</html>
